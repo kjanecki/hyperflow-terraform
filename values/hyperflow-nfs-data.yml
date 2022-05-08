@@ -1,0 +1,11 @@
+nodeSelector:
+  cloud.google.com/gke-nodepool: hfmaster
+
+command:
+  - "/bin/sh"
+  - "-c"
+  - >
+    echo "Mounting..." ;
+    cp -rv /data/* /workflow-data ;
+    sed -i 's/exit/noop/g' /workflow-data/workflow.json ;
+    echo "Volume mounted" ;

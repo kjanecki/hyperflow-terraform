@@ -1,0 +1,8 @@
+# helm install adapter prometheus-community/prometheus-adapter
+
+prometheus:
+  url: http://prometheus-operated.default.svc
+  port: 9090
+
+nodeSelector:
+  node-role.kubernetes.io/hfmaster: hfmaster

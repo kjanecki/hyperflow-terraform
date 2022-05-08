@@ -1,0 +1,39 @@
+resources:
+  requests:
+    cpu: 200m
+    memory: "500Mi"
+  limits:
+    cpu: 2.5
+    memory: "5000Mi"
+
+containers:
+  hyperflow:
+    image: kjanecki/hyperflow:v1.5.7-19-g014a496-amqp
+    runAsServer: true
+    serverCommand:
+      - "/bin/sh"
+      - "-c"
+      - >
+        hflow start-server --host 0.0.0.0 --port 8080 ;
+  worker:
+    image: mbszarek/montage2-worker:je-1.1.6
+    additionalVariables:
+      - name: HF_VAR_DEBUG
+        value: "0"
+      - name: HF_VAR_CPU_REQUEST
+        value: "0.7"
+      - name: HF_VAR_MEM_REQUEST
+        value: "500Mi"
+      - name: PORT
+        value: "8080"
+      - name: HF_VAR_autoscalerAddress
+        value: 'http://hyperflow-standalone-autoscaler:8080'
+      - name: NODE_OPTIONS
+        value: "--max-old-space-size=4096"
+      - name: RABBIT_HOSTNAME
+        value: rabbitmq.default
+  tools:
+    image: hyperflowwms/hflow-tools:v1.3.0
+
+nodeSelector:
+  node-role.kubernetes.io/hfmaster: hfmaster

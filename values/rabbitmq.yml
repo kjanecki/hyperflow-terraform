@@ -1,0 +1,24 @@
+replicaCount: 1
+
+persistence:
+  enabled: false
+
+auth:
+  username: guest
+  password: guest
+  erlangCookie: jiwng4pw7NJL3KutMb4pF7k6C5RphXYU
+
+metrics:
+  enabled: true
+  plugins: "rabbitmq_prometheus"
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: monitoring
+      app.kubernetes.io/component: metrics
+
+prometheusRule:
+  enabled: true
+
+nodeSelector:
+  node-role.kubernetes.io/hfmaster: hfmaster
