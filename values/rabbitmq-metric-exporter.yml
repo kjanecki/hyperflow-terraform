@@ -1,2 +1,5 @@
 nodeSelector:
   node-role.kubernetes.io/hfmaster: hfmaster
+prometheus:
+  monitor:
+    interval: 5s

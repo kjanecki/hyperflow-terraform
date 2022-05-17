@@ -1,6 +1,9 @@
 nodeSelector:
   cloud.google.com/gke-nodepool: hfmaster
 
+workflow:
+  image: hyperflowwms/montage2-workflow-data:montage2-dss-3.0-latest
+
 command:
   - "/bin/sh"
   - "-c"
