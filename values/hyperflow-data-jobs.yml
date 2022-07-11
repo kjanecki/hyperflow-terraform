@@ -1,0 +1,12 @@
+workflow:
+#  image: matplinta/montage2-workflow-data:degree1.0
+  image: hyperflowwms/montage2-workflow-data:montage2-dss-3.0-latest
+
+command:
+  - "/bin/sh"
+  - "-c"
+  - >
+    echo "Mounting..." ;
+    cp -rv /data/* /workflow-data ;
+    sed -i 's/exit/noop/g' /workflow-data/workflow.json ;
+    echo "Volume mounted" ;

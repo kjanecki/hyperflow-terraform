@@ -37,7 +37,7 @@ resource "helm_release" "hyperflow-engine-jobs" {
 resource "helm_release" "hyperflow-data-jobs" {
   name       = "hyperflow-data"
   chart      = "https://github.com/kjanecki/hyperflow-charts/releases/download/v1.0.0/hyperflow-nfs-data.tgz"
-  values     = [file("./values/hyperflow-data.yml")]
+  values     = [file("./values/hyperflow-data-jobs.yml")]
   depends_on = [kubernetes_namespace.jobs, helm_release.hyperflow-engine-jobs]
   namespace  = "jobs"
 }
