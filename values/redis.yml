@@ -1,2 +1,7 @@
 nodeSelector:
   node-role.kubernetes.io/hfmaster: hfmaster
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 100Mi

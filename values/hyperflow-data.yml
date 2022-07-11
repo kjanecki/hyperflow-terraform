@@ -1,5 +1,6 @@
 workflow:
-  image: hyperflowwms/montage2-workflow-data:montage2-2mass-025-latest
+  image: matplinta/montage2-workflow-data:degree1.0
+#  image: hyperflowwms/montage2-workflow-data:montage2-dss-3.0-latest
 
 command:
   - "/bin/sh"

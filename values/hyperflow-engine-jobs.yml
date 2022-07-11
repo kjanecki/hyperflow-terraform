@@ -103,8 +103,8 @@ configMap:
                   workingDir: ${workingDirPath}
                   resources:
                     requests:
-                      cpu: 200m
-                      memory: 500Mi
+                      cpu: 0.5
+                      memory: 524288k
                   volumeMounts:
                   - name: my-pvc-nfs
                     mountPath: ${volumePath}

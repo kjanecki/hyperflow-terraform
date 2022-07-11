@@ -1,0 +1,9 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  viz-trace:
+    command: /bin/sh -c 'while true; do sleep 5 ; done ;'
+    image: hyperflowwms/viz-trace:v1.0.0
+    volumes:
+      - viz-trace:/work_dir
+volumes:
+  viz-trace: {}
