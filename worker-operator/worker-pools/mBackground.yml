@@ -1,0 +1,14 @@
+apiVersion: hyperflow.agh.edu.pl/v1
+kind: WorkerPool
+metadata:
+  name: mbackground
+spec:
+  taskType: mBackground
+  image: kjanecki/montage2-worker:latest
+  initialResources:
+    requests:
+      cpu: "0.5"
+      memory: "524288000"
+    limits:
+      cpu: "0.5"
+      memory: "524288000"
